@@ -1,7 +1,7 @@
 package com.mapper.matcher
 
 import com.mapper.model.MethodInfo
-import kotlin.math.log
+import kotlin.math.ln
 import kotlin.math.sqrt
 
 /**
@@ -207,7 +207,7 @@ class TfIdfMethodMatcher {
 
         return termFrequency.mapValues { (term, tf) ->
             val df = documentFrequency[term] ?: 1
-            val idf = log(totalDocuments.toDouble() / df)
+            val idf = ln(totalDocuments.toDouble() / df)
             tf * idf
         }
     }
